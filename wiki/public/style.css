@@ -12,6 +12,11 @@ body {
 a {
  text-decoration: none;
 }
+div.embedded_maps {
+float:left; 
+clear: left;
+position: relative;
+} 
 div.main_container {
  background-color: #F0FFFF;
 }
@@ -24,5 +29,5 @@ div.navbar {
  float: left;
 }
 div.view_content {
- min-height: 800px;
+ min-height: 400px;
 }
