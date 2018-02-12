@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="This is my new Wiki app" />
+        <meta name="keywords" content="wiki, test app, blog"/>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <title>My Wiki application</title>
+    </head>
+<body>
+    <div class="main_container">
+    <header>
+        <div class="page_title">
+            <h1>My Wiki App</h1>
+        </div>
+<div class="navbar">
+     <a href="/">Home</a>
+     <a href="/create">Create</a>
+     <a href="/about">About</a>
+     <a href="/edit">Edit</a>
+     <div class="login">
+         <% if $credentials %>
+             <% if $credentials[0] != ' ' %>
+                 Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a> |
+                 <a href="/logout">Logout</a> |
+                 <% if $credentials[0] == "Admin" %>
+                     <a href="/admincontrols">Admin Controls</a>
+                 <% end %>
+             <% else %>
+                 <a href="/login">Login</a>
+             <% end %>
+         <% else %>
+             <a href="/login">Login</a>
+         <% end %>
+     </div>
+</div>
+    </header>
+    <div class="view_content">
+        <%= yield %>
+    </div>
+    <footer>
+        <p>Created by Jakob Fischer</p>
+    </footer>
+    </div>
+</body>
+</html>
