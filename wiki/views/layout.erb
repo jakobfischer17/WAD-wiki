@@ -39,6 +39,14 @@
     <div class="view_content">
         <%= yield %>
     </div>
+    <div class="embedded_maps"> <!--created by following the guide at https://developers.google.com/maps/documentation/embed/guide?hl=de  -->
+        <iframe
+            width="500"
+            height="350"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCJUL4WOSqyyU2NC_zoLS5x0oYkzAJVvro
+            &q=Myanmar" allowfullscreen>
+        </iframe>
     <footer>
         <p>Created by Jakob Fischer</p>
     </footer>
