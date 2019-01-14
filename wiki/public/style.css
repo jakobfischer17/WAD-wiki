@@ -1,33 +1,113 @@
-header {
-height: 100px;
-padding-bottom: 50px;
+       /* Remove the navbar's default margin-bottom and rounded borders */ 
+body {
+        font-family: 'Ubuntu', serif;
+        font-size: 14px;
+        background-color: lightgrey;
+      }
+h2 {
+    font-size: 36px;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-bottom: 0;
+    
+    border-bottom: 3px solid black;
+     
+    
+}
+.home-div {
+    background-color: white;
+        margin-top: -20px;
+        margin-left: -20px;
+        margin-right: -20px
+        
+
 }
 
-body {
- font-family: Arial;
- margin-left: auto;
- margin-right: auto;
- width: 1200px;
+
+.my-well
+{
+    margin-top: 10px    ;
 }
-a {
- text-decoration: none;
+
+.btn-sidebar
+{
+    min-width: 160px;
+    margin-bottom: 7px;
 }
-div.embedded_maps {
-float:left; 
-clear: left;
-position: relative;
-} 
-div.main_container {
- background-color: #F0FFFF;
+
+.wiki-title
+{
+    margin-top: 0;
 }
-div.page_title {
- text-align: center;
+
+.wiki-content
+{
+    white-space: pre-line;
 }
-div.navbar {
- width: 100%;
- position: relative;
- float: left;
+
+.subtitle
+{
+    color: #aaa;
 }
-div.view_content {
- min-height: 400px;
+
+.p-sidebar
+{
+   padding: 0;
+   text-align: center;
+   
 }
+
+.navbar-brand
+{
+    padding-top: 0;
+}
+
+.dark-hr
+{
+    padding: 0;
+    margin-top: 0;
+    border: 1px solid #aaa;
+}
+
+
+.navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 100%}
+    
+
+    
+    /* Set black background color, white text and some padding */
+footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+}
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+}
+
+
+

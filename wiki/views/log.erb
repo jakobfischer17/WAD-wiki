@@ -1,0 +1,31 @@
+<div class="well well-lg my-well">
+   <h3 class="wiki-title">Wiki Log File</h3>
+   <hr class="dark-hr" />
+    <!--<div class="wiki-content">-->
+    <!--    <p>Find below the logged user activity (for most recent scroll down):</p>-->
+    <!--    <p style="white-space: pre-line"> <%= @logfile %></p>-->
+    <!--</div>-->
+    
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>Log of activities</th>
+           
+        </tr>
+    </thead> 
+    
+    <tbody>
+        <% @logfile.each do |line| %>
+        <tr>
+            <td><%= line %></td>
+            
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+
+</div>
+

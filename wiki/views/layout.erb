@@ -1,55 +1,128 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <meta name="description" content="This is my new Wiki app" />
-        <meta name="keywords" content="wiki, test app, blog"/>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
-        <title>My Wiki application</title>
-    </head>
+<html lang="en">
+<head>
+    <!--The general code and styling from this layout was from https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&stacked=h-->
+  <title>Wiki4Humanity</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  
+</head>
+
+
 <body>
-    <div class="main_container">
-    <header>
-        <div class="page_title">
-            <h1>My Wiki App</h1>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand">
+              <img src ="https://us.123rf.com/450wm/dizanna/dizanna1509/dizanna150900572/45100798-humanitarian-word-cloud-heart-concept.jpg?ver=6" style="width:50px;height:50px;" class="img-rounded"></a>
         </div>
-<div class="navbar">
-     <a href="/">Home</a>
-     <a href="/create">Create</a>
-     <a href="/about">About</a>
-     <a href="/edit">Edit</a>
-     <div class="login">
-         <% if $credentials %>
-             <% if $credentials[0] != ' ' %>
-                 Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a> |
-                 <a href="/logout">Logout</a> |
-                 <% if $credentials[0] == "Admin" %>
-                     <a href="/admincontrols">Admin Controls</a>
-                 <% end %>
-             <% else %>
-                 <a href="/login">Login</a>
-             <% end %>
-         <% else %>
-             <a href="/login">Login</a>
-         <% end %>
-     </div>
-</div>
-    </header>
-    <div class="view_content">
-        <%= yield %>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/create">Create</a></li>
+            <li><a href="/edit">Edit</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+               <% if $credentials %>
+               <!--#This line checks if the credential is not nil, plus if it is equal to an exact username-->
+                    <% if $credentials[0] != "" %>
+                        <li><a href="/user/<%= $credentials[0] %>">Logged in as <b><%= $credentials[0] %></b></a></li>
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                        <% if $credentials[0] == "Admin" %>
+                            <li><a href="/admincontrols"><span class="glyphicon glyphicon-user"></span> Admin Controls</a></li>
+                        <% end %>
+                    <% else %>
+                        <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+                    <% end %>
+                <% else %>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-md-offset-1 col-sm-2">
+                <div class="well well-lg my-well">
+                    <h4>
+                        <strong>
+                        <p class="p-sidebar" style="color:#005FB7">Action Against Hunger <span class="glyphicon glyphicon-arrow-down"></span></p>
+                        <img class="img-responsive" src="https://vignette1.wikia.nocookie.net/logopedia/images/3/39/Action_Against_Hunger.svg/revision/latest?cb=20140830205923" style="width:100%;height:100px;">
+                        <a href="https://www.actionagainsthunger.org/donate-now" target="_blank" class="btn btn-primary btn-sidebar"><span class="glyphicon glyphicon-gbp"> </span>DONATE</a>
+                        <hr>
+                        <p class="p-sidebar"style="color:#0082B8">World Food Program <span class="glyphicon glyphicon-arrow-down"></span></p>
+                        <img class="img-responsive" src="http://logonoid.com/images/wfp-logo.png" style="width:100%;height:100px;">
+                        <a href="http://cdn.wfp.org/donate?_ga=2.2571895.639843014.1519043132-1347716870.1519043132" target="_blank" class="btn btn-info btn-sidebar"><span class="glyphicon glyphicon-gbp"> </span>DONATE</a>
+                        <hr>
+                        <p class="p-sidebar" style="color:#589A2C">Oxfam <span class="glyphicon glyphicon-arrow-down"></span></p>
+                        <img class="img-responsive" src="http://www.oxfordmail.co.uk/resources/images/4900535.jpg?display=1&htype=0&type=responsive-gallery" style="width:100%;height:100px;">
+                        <a href="https://www.oxfam.org.uk/donate/" target="_blank" class="btn btn-success btn-sidebar"><span class="glyphicon glyphicon-gbp"> </span>DONATE</a>
+                        <hr>
+                        <p class="p-sidebar" style="color:#CC0000">Red Cross <span class="glyphicon glyphicon-arrow-down"></span></p>
+                        <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/IFRC_Logo.png" style="width:100%;height:100px;">
+                        <a href="https://media.ifrc.org/ifrc/support-us/donate-now/" target="_blank" class="btn btn-danger btn-sidebar"><span class="glyphicon glyphicon-gbp"> </span>DONATE</a>
+                        </strong>
+                    </h4>
+                </div>
+            </div>
+        
+        
+            <div class="col-sm-6 text-justify">
+               <%= yield %>
+            </div>
+            
+            
+            <div class="col-sm-3">
+                <div class="well my-well">
+                    <img class="img-responsive" src="https://timedotcom.files.wordpress.com/2017/12/kevin-frayer-rohingya-bangladesh-top-100-photos-2017.jpg?quality=85" style="width:100%;height:300px;">
+                </div>
+                
+                <div class="panel panel-info">
+                    <div class="panel-heading ">
+                        <h4 class="panel-title">Watch a brief documentary</h4>
+                    </div>
+
+                    <div class="panel-body embedded_maps"><!--created by following the guide at https://developers.google.com/maps/documentation/embed/guide?hl=de  -->
+                            
+                        <iframe class="embed-responsive-item" width="100%" height="315" src="https://www.youtube.com/embed/PWiz_wqC1Do" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                               
+                    </div>
+                        
+                </div>
+                            
+                <div class="panel panel-primary">
+                    <div class="panel-heading "> 
+                        <h4 class="panel-title">Use the map to view crises areas</h4>
+                    </div>
+
+                    <div class="panel-body embedded_maps"><!--created by following the guide at https://developers.google.com/maps/documentation/embed/guide?hl=de  -->
+                            
+                        <iframe class="embed-responsive-item" width="100%" height="400" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCJUL4WOSqyyU2NC_zoLS5x0oYkzAJVvro&q=Myanmar" allowfullscreen></iframe>
+                               
+                    </div>
+                        
+                </div>
+                            
+            </div>
+      </div>
     </div>
-    <div class="embedded_maps"> <!--created by following the guide at https://developers.google.com/maps/documentation/embed/guide?hl=de  -->
-        <iframe
-            width="500"
-            height="350"
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCJUL4WOSqyyU2NC_zoLS5x0oYkzAJVvro
-            &q=Myanmar" allowfullscreen>
-        </iframe>
-    <footer>
-        <p>Created by Jakob Fischer</p>
+    
+    <footer class="container-fluid text-center">
+        <p><span class="glyphicon glyphicon-copyright-mark"> </span> Jakob Fischer (5773261) & Chidozie Nnachor (51773318) 2018 </p> 
     </footer>
-    </div>
 </body>
 </html>

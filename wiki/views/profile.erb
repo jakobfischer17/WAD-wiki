@@ -1,7 +1,11 @@
-<br><br>
-<h2>User</h2>
-<% if @Userz %>
-<article>
-    <h1>Account - <%= @Userz.username %></h1>
-</article>
-<% end %>
+<div class="well well-lg my-well">
+   <h3 class="wiki-title">User Profile</h3>
+   <hr class="dark-hr" />
+    <div class="wiki-content alert alert-info" role="alert">
+        <% if @Userz %>
+            <article>
+            <h4>Your user profile is "<%= @Userz.username %>"</h4>
+            </article>
+        <% end %>
+    </div>
+</div>

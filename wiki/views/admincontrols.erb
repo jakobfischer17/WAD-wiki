@@ -1,20 +1,81 @@
-<h2>Admin controls page</h2>
-<p><b>User list</b></p><br>
-<p>Username - DateJoined - Edit?</p><br>
-<% @list2.each do |liste| %>
-<article>
- <p>
-  <%= liste.username %> - <%= liste.created_at %> - <%= liste.edit %>
-  <% if liste.username != "Admin" %>
-   <form action="/user/<%= liste.username %>" method="post" id="edit">
-   <input type="hidden" name="_method" value="put">
-   <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
-   <input type="submit" value="Allow Edit?">
-  <% end %>
-   </form>
-  <% if liste.username != "Admin" %>
-   <a href="/user/delete/<%= liste.username %>">Delete User?</a>
-  <% end %>
- </p>
-</article>
-<% end %> 
+<div class="well well-lg my-well">
+   <h3 class="wiki-title">Admin Controls Page</h3>
+      <hr class="dark-hr" />
+      <div class="panel-footer row">
+            <div class="col-xs-6 text-left">
+                <form  method="get" action="/backup">
+                <button class="btn btn-success" type="submit">Create backup</button>
+                </form>
+                <br>
+                 <form  method="get" action="/approveupdate">
+                <button class="btn btn-danger" type="submit">Approve pending updates</button>
+                </form>
+            </div>
+            
+            <div class="col-xs-6 text-right">
+                <form  method="get" action="/log">
+                <button class="btn btn-primary" type="submit">View logfile</button>
+                </form>
+                <br>
+                <form method="get" action="/adduser">
+                <button class="btn btn-primary" type="submit">Add new user</button>
+                </form>
+            </div>
+            
+        </div>
+<br />
+   <h4 class="wiki-title">Users' List</h4></h4>
+      <hr class="dark-hr" />
+
+<!--<p>Username - DateJoined - Edit?</p><br>-->
+<!--<% @list2.each do |liste| %>-->
+<!--<article>-->
+<!-- <p>-->
+<!--  <%= liste.username %> - <%= liste.created_at %> - <%= liste.edit %>-->
+<!--  <% if liste.username != "Admin" %>-->
+<!--   <form action="/user/<%= liste.username %>" method="post" id="edit">-->
+<!--   <input type="hidden" name="_method" value="put">-->
+<!--   <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>-->
+<!--   <input type="submit" value="Allow edit?">-->
+<!--  <% end %>-->
+<!--   </form>-->
+<!--  <% if liste.username != "Admin" %>-->
+<!--   <a href="/user/delete/<%= liste.username %>">Delete User?</a>-->
+<!--  <% end %>-->
+<!-- </p>-->
+<!--</article>-->
+<!--<% end %>-->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Date Created</th>
+            <th>Edit Status</th>
+            <th>Delete User?</th>
+        </tr>
+    </thead> 
+    
+    <tbody>
+        <% @list2.each do |liste| %>
+        <tr>
+            <td><%= liste.username %></td>
+            <td><%= liste.created_at %></td>
+            <td>
+                <% if liste.username != "Admin" %>
+                   <form action="/user/<%= liste.username %>" method="post" id="edit">
+                       <input type="hidden" name="_method" value="put">
+                       <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
+                       <input class="btn btn-success" type="submit" value="Save?">
+                    <% end %>
+                    </form></td>
+           <td>
+               <% if liste.username != "Admin" %>
+                   <button class="btn btn-danger" ><a href="/user/delete/<%= liste.username %>">Delete User?</a></button>
+                <% end %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+</div>

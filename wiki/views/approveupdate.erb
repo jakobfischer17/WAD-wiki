@@ -1,0 +1,29 @@
+<div class="well well-lg my-well">
+   <h3 class="wiki-title">Pending Approval page</h3>
+   <hr class="dark-hr" />
+    
+    <div class="panel panel-info">
+        <div class="panel-heading "> 
+            <h4 class="panel-title">The following update is awaiting your attention:</h4>
+        </div>
+
+        <div class="panel-body wiki-content">
+                            
+            <%= @updateyesorno %>
+            
+            
+            <div class="form-group">
+                <form class="left" method="get" action="/acceptupdate">
+                <button class="btn btn-success" type="submit">Accept</button>
+                </form>
+                <form class="right" method="get" action="/declineupdate">
+                <button class="btn btn-danger" type="submit">Decline</button>
+                </form>
+            </div>
+
+        </div>
+                        
+    </div>
+    
+    
+</div>

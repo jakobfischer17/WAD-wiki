@@ -1,7 +1,25 @@
-<br><br>
-<p>Welcome to WAD wiki. A free online encyclopedia of knowledge that can be viewed by anyone!</p>
-<p>Feel free to search for anything you desire! And if it does not exist then create it!</p>
-<p>Use the menu to the left to navigate the site!</p>
-Number of words: <%= @words %> <br><br>
-Your wiki text: <%= @info %>
+
+<div class="well well-lg my-well">
+    <h1 class="wiki-title">Humanitarian Crises In The World</h1>
+    <h3 class="wiki-title subtitle">We cannot afford to ignore</h3>
+    
+    <div class="wiki-content">
+        <%= @info %>
+        
+        <small>
+            Information for the Wiki culled from:
+            <a href="https://www.mercycorps.org/articles/9-humanitarian-crises-we-cant-ignore-year">Mercycorps</a> and <a href="http://www.unocha.org/nigeria/about-ocha-nigeria/about-crisis">OCHA</a>
+        </small>
+    </div>
+    <hr class="dark-hr" />
+    <div class="form-group">
+        <h5>Number of Characters:</h4>
+        <h4><strong style="color:blue"><%= @characters %></strong></h4>
+        <h5>Number of Words:</h4>
+        <h4><strong style="color:blue"><%= @words %></strong></h4>
+        
+    </div>
+    
 </div>
+
+

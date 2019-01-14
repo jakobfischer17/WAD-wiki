@@ -1,15 +1,16 @@
-
-<br><br>
-<h2>Edit article</h2><br>
-<form action="/edit" method="post" id="edit">
- <input type="hidden" name="_method" value="put">
- <textarea rows="20" cols="90" name="message"><%= @info %></textarea>
- <input type="submit" value="Update">
- </form>
- <p><a href="../reset">Reset</a></p>
-
-
-
+<div class="well well-lg my-well">
+   <h3 class="wiki-title">Edit Wiki</h3>
+   <hr class="dark-hr" />
+    <div class="wiki-content form-group">
+        <form action="/edit" method="post" id="edit">
+        <input type="hidden" name="_method" value="put">
+        <textarea class="form-control" rows="20" cols="70" name="message"><%= @info %></textarea>
+        <input class="btn btn-success" type="submit" value="Update">
+        </form>
+       <p><a href="../reset">Reset changes in wiki</a></p>
+       <p><a href="../resettodefault">Reset to default</a></p>
+    </div>
+</div>
 
 
 
